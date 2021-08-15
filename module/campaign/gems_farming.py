@@ -8,7 +8,7 @@ from module.logger import logger
 from module.map.assets import FLEET_PREPARATION, MAP_PREPARATION
 from module.ocr.ocr import Digit
 from module.retire.dock import *
-from module.ui.page import page_fleet
+from module.ui.page import page_fleet, page_main
 
 SIM_VALUE = 0.95
 
@@ -85,8 +85,8 @@ class GemsFarming(CampaignRun, EquipmentChange):
             self._equip_take_off_one()
 
         self._fleet_detail_enter()
-
         self.flagship_change_execute()
+        self.ui_ensure(page_main)
 
         if self.config.GEMS_FLAG_SHIP_EQUIP_CHANGE:
             logger.info('Record flagship equipment.')
@@ -107,8 +107,9 @@ class GemsFarming(CampaignRun, EquipmentChange):
             self._equip_take_off_one()
 
         self._fleet_detail_enter()
-
         self.vanguard_change_execute()
+        self.ui_ensure(page_main)
+
 
         if self.config.GEMS_VANGUARD_SHIP_EQUIP_CHANGE:
             logger.info('Equip vanguard equipment.')
@@ -319,3 +320,16 @@ class GemsFarming(CampaignRun, EquipmentChange):
                 backup.recover()
                 break
 
+
+
+class A():
+    def run(self):
+        while 1:
+            print(233)
+
+class B(A):
+    def run(self):
+        while 1:
+            print(1)
+            super().run()
+            print(2)
