@@ -66,7 +66,7 @@ class AutoSearchCombat(Combat):
                 if not fleet_log:
                     logger.info(f'Fleet: {index}, fleet_current_index: {fleet_current_index}')
                     fleet_log = True
-                    self.lv_get(True)
+                    self.lv_get(after_battle=True)
                 elif fleet_current_index != self.fleet_current_index:
                     logger.info(f'Fleet: {index}, fleet_current_index: {fleet_current_index}')
                 self.fleet_current_index = fleet_current_index
